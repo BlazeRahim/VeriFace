@@ -1,3 +1,7 @@
+
+body{
+    user-select: none;
+}
 .deepfake{
     width: 100vw;
     height: 100vh;
@@ -19,19 +23,45 @@
     height:100%;
 }
 .deepfake .right .box{
-    margin-bottom: -25%;
+    margin-bottom: -15%;
     margin-left: -200px;
     min-width: 70%;
     height: 50%;
     border-radius: 30px;
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #55555500),var(--tw-ring-shadow, 0 0 #55555500),0px 0px 50px rgba(69, 69, 69, .1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
+.deepfake .right .box button{
+    width: 52%;
+    height: 50px;
+    border-radius: 30px;
+    background-color: #0272FF;
+    color: white;
+    border: none;
+    font-size: 1.15rem;
+    transition: 0.6s ease;
+}
 
-
+.deepfake .right .box button:hover{
+    background-color: #0249B3;
+    cursor: pointer;
+    transform: scale(1.04);
+}
+.deepfake .right .box #Videoupload{
+    display: none;
+}
+.deepfake .right .box p{
+    user-select: none;
+    text-align: center;
+    width: 85%;
+}
 .deepfake  .ploy{
     position: absolute;
-    top: 56%;
+    top: 52%;
     right: 13%;
     width: 30px;
     height: 25px;
@@ -40,14 +70,21 @@
 }
 
 .deepfake  .ploy:hover{
-    top: 59%;
+    top: 49%;
     right: 16%;
     transform: rotate(190deg);
 }
 .deepfake .rope{
     position: absolute;
-    top: 24%;
+    top: 20%;
     right: 3%;
     width: 180px;
     height: 180px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    pointer-events: none;
 }

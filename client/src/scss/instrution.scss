@@ -35,7 +35,7 @@
 }
 .inst .boxes .box .ele:hover{
     cursor: pointer;
-    transform: rotate(360deg);
+    transform: rotate(360deg) scale(1.1);     
 }
 .inst .boxes .box .icon {
     width: 80%;
