@@ -16,7 +16,7 @@ const inputRef = useRef(null);
   const [reaction , setreaction] = useState(-1)
   const color_code = ["#0ED23A","#FF2A2A","#FFB818"]
   const arr_emoji = [Green,Red,Error]
-  const [points,setpoints] = useState({}) 
+  //const [points,setpoints] = useState({}) 
   const [ temp , settemp] = useState(videoUrl)
   const [api,setapi] = useState(false);
   const abortcontroller = useRef(null)
@@ -32,6 +32,7 @@ const inputRef = useRef(null);
       const element = document.querySelector(".down");
       element.style.display="none";
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   },[video])
 
 
@@ -53,6 +54,7 @@ const inputRef = useRef(null);
          data.append("file",fileObj)
          setvideo(data)
          const file = fileObj
+         console.timeLog(file)
          for (var key of data.entries()) {
           console.log(key[0] + ', ' + key[1]);
       }
@@ -67,31 +69,8 @@ const inputRef = useRef(null);
 
     // 👇️ reset file input
     event.target.value = null;
-
-    // // 👇️ is now empty
-    // console.log(event.target.files);
-
-    // // 👇️ can still access file object here
-    // console.log(fileObj);
-    // console.log(fileObj.name);
   };
 
-  
-
-  // useEffect(()=>{
-  //    if(videoUrl && temp !== videoUrl){
-  //      settemp(videoUrl)
-  //      const element2 = document.querySelector('.img')
-  //      element2.style.display="flex";
-  //      element2.style.animation="increaseWidth 10s forwards";
-  //      const element3 = document.querySelector('.image')
-  //      element3.style.animation ="blink 2s infinite"
-  //    }else{
-  //     const element2 = document.querySelector('.img')
-  //     element2.style.display="none";
-  //     setreaction(-1);
-  //    }
-  // },[videoUrl])
 
   useEffect(()=>{
     if(flag===true && temp!==videoUrl){
@@ -106,6 +85,7 @@ const inputRef = useRef(null);
      element2.style.display="none";
     //  setreaction(-1);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
  },[flag])
 
 
@@ -117,7 +97,7 @@ const inputRef = useRef(null);
     console.log("wennjdkfuihywbhdn")
     try{
       abortcontroller.current = new AbortController()
-    const res = await fetch("http://localhost:5000/detect",{
+    const res = await fetch("https://veriface-backd.onrender.com/detect",{
       signal:abortcontroller.current.signal,
       method: "POST",
       headers:{
@@ -169,9 +149,9 @@ const inputRef = useRef(null);
     const relativeLeft = elementRect.left - parentRect.left;
          console.log(relativeTop)
          console.log(relativeLeft)
-         const reacty = document.querySelector(".react")
 
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   },[reaction])
 
 
@@ -221,7 +201,7 @@ theme="light"
       <img src={Load} alt="" className='img' id='immg'/>
       </div>
       </div>
-      
+
       <div className="right">
         <div className="box">
         <motion.div className="up"  initial={{ scale:0}}
@@ -280,59 +260,3 @@ theme="light"
   )
 }
 export default Deepfake
-
-
-
-
-
-
-
-
-
-
-
-  
-// function setupDrawing() {
-//         let containe = document.querySelector('.rope');
-//         let isDrawing = false;
-//         // Get the top-left and bottom-right positions
-//         const rect = containe.getBoundingClientRect();
-//         const region1 = { x1: rect.top, x2: rect.bottom, y1: rect.left, y2: rect.right };
-//         containe.addEventListener('mousedown', (e) => {
-//             if (isInRegion(e, region1)) {
-//                 isDrawing = true;
-//             }
-//         });
-//         containe.addEventListener('mouseup', () => {
-//             isDrawing = false;
-
-//             // Remove all blue boxes
-//             const blueBoxes = containe.querySelectorAll('.blue-box');
-//             blueBoxes.forEach((box) => {
-//                 containe.removeChild(box);
-//             });
-//         });
-//         containe.addEventListener('mousemove', (e) => {
-//           console.log("hey")
-//             if (isDrawing) {
-//                 if (isInRegion(e, region1)) {
-//                     const blueBox = document.createElement('div');
-//                     blueBox.className = 'blue-box';
-//                     blueBox.style.left = (e.clientX - containe.getBoundingClientRect().left - 10) + 'px';
-//                     blueBox.style.top = (e.clientY - containe.getBoundingClientRect().top - 10) + 'px';
-//                     containe.appendChild(blueBox);
-//                 }
-//             }
-//         });
-//         function isInRegion(event, region) {
-//             const { x, y } = getMouseCoordinates(event);
-//             return x >= region.x1 && x <= region.x2 && y >= region.y1 && y <= region.y2;
-//         }
-//         function getMouseCoordinates(event) {
-//             return {
-//                 x: event.clientX - containe.getBoundingClientRect().left,
-//                 y: event.clientY - containe.getBoundingClientRect().top
-//             };
-//         }
-//       }
-//         document.addEventListener('DOMContentLoaded', setupDrawing);
