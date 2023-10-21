@@ -7,7 +7,6 @@ import Load from "../images/load.png";
 import Green from '../images/green.png'
 import Error from '../images/error.png'
 import Red from '../images/red.png'
-import { ToastContainer, toast } from 'react-toastify';
 const Deepfake = () => {
 const inputRef = useRef(null);
   const [video , setvideo] = useState(null);
@@ -96,8 +95,9 @@ const inputRef = useRef(null);
     console.log(data)
     console.log("wennjdkfuihywbhdn")
     try{
+      //https://veriface-backd.onrender.com
       abortcontroller.current = new AbortController()
-    const res = await fetch("https://veriface-backd.onrender.com/detect",{
+    const res = await fetch("http://localhost:5000/detect",{
       signal:abortcontroller.current.signal,
       method: "POST",
       headers:{
@@ -157,32 +157,10 @@ const inputRef = useRef(null);
 
   const cancelrequest=()=>{
     abortcontroller.current && abortcontroller.current.abort()
-    toast.warn('Request Aborted!', {
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-      });
   }
 
   return (
     <div className="deepfake">
-      <ToastContainer
-position="top-right"
-autoClose={3000}
-hideProgressBar
-newestOnTop={false}
-closeOnClick
-rtl={false}
-pauseOnFocusLoss
-draggable
-pauseOnHover
-theme="light"
-/>
       <div className="left" id='left'>
       {videoUrl && (
         <motion.video initial={{ scale:0}}

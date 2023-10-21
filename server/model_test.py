@@ -9,14 +9,12 @@ import cv2
 class DataHandler:
     def __init__(self, path_base):
         self.path_base = path_base
-
     def load_test_data(self):
         image_gen = ImageDataGenerator(
             rescale=1.0 / 255,
             horizontal_flip=True,
             brightness_range=(0.7, 1),
         )
-
         test_flow = image_gen.flow_from_directory(
             self.path_base + 'test/',
             target_size=(256, 256),
