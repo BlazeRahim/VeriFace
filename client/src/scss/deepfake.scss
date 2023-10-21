@@ -9,7 +9,7 @@ body{
     justify-content: center;
     align-items: center;
     position: relative;
-    gap: 5%;
+    // gap: 5%;
 }
 .deepfake .right{
     width: 40%;
@@ -20,7 +20,7 @@ body{
     position: relative;
 }
 .deepfake .left{
-    width: 55%;
+    width: 60%;
     height:100%;
     display: flex;
     justify-content: flex-start;
@@ -30,17 +30,18 @@ body{
 .deepfake .left video{
     position: relative;
     opacity: 1 !important;
-    width: 65%;
-    height: 46%;
+    width: 60%;
+    // height: 46%;
+    height: 280px;
     object-fit: cover;
     z-index: 1;
-    margin-top: 4%;
+    margin-top: 2%;
 }
 .deepfake .left .image{
-    margin-top: -39.5%;
+    margin-top: -280px;
     margin-right: 0%; 
     transition: 2s ease;
-    width: 65%;
+    width: 60%;
     height: 46%;
     z-index: 100;
 }
@@ -61,8 +62,8 @@ body{
 }
 .deepfake .left .react{
     z-index: 100;
-    width: 150px;
-    height: 140px;
+    width: 140px;
+    height: 130px;
 }
 
 .blink{
@@ -265,19 +266,20 @@ body{
     .deepfake .left video{
         position: relative;
         opacity: 1 !important;
-        width: 85%;
-        height: 210px;
+        width: 90%;
+        height: 220px;
         object-fit: cover;
         z-index: 1;
         margin-top: 0%;
     }
     .deepfake .left .image{
-        margin-top: -210px;
+        margin-top: -220px;
         margin-right: 0%; 
         transition: 2s ease;
-        width: 85%;
-        height: 210px;
+        width: 90%;
+        height: 220px;
         z-index: 100;
+        filter: brightness(1.4);
     }
     .deepfake .left .img{
        width: 100%;
@@ -335,7 +337,7 @@ body{
         flex-direction: column;
     }
     .deepfake .right .box .up button{
-        width: 57%;
+        width: 60%;
         height: 50px;
         border-radius: 30px;
         background-color: #0272FF;
@@ -430,10 +432,17 @@ body{
     }
     .deepfake .rope{
         position: absolute;
-        top: 60%;
+
+        top: 8%;
         right: 1%;
-        width: 80px;
-        height: 80px;
+        width: 150px;
+        height: 260px;
+
+        
+        // top: 60%;
+        // right: 1%;
+        // width: 80px;
+        // height: 80px;
         -webkit-touch-callout: none;
         -webkit-user-select: none;
         -khtml-user-select: none;
