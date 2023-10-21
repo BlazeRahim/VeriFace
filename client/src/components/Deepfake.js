@@ -221,6 +221,7 @@ theme="light"
       <img src={Load} alt="" className='img' id='immg'/>
       </div>
       </div>
+      
       <div className="right">
         <div className="box">
         <motion.div className="up"  initial={{ scale:0}}
