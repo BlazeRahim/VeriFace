@@ -2,15 +2,11 @@ import cv2
 import os
 
 def frames_generate(video_path, output_base_folder,random_filename):
-    face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
-    print("he,ewlkendjhevbe")
+    face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
     desired_width = 200
     desired_height = 200
 
     if not os.path.exists(output_base_folder):
-        print("jnerkfd")
-        print(output_base_folder)
-        print(video_path)
         os.makedirs(output_base_folder)
     vid = cv2.VideoCapture(video_path)
     currentframe = 0
@@ -30,19 +26,7 @@ def frames_generate(video_path, output_base_folder,random_filename):
                 face_frame = frame[expanded_y:expanded_y + expanded_h, expanded_x:expanded_x + expanded_w]
                 face_frame = cv2.resize(face_frame, (desired_width, desired_height))
                 name = os.path.join(output_base_folder, f'{random_filename}_frame{currentframe}.jpg')
-                print(name)
                 cv2.imwrite(name, face_frame)
                 currentframe += 1
-        if cv2.waitKey(1) & 0xFF == 27:
-            break
-        else:
-            break
     vid.release()
     cv2.destroyAllWindows()
-
-
-
-# inp_fol_test_real = 'video'
-# out_fol_test_real = 'video/out'
-
-# frames_generate(inp_fol_test_real, out_fol_test_real)
