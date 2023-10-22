@@ -1,5 +1,4 @@
 from flask import Flask, request, jsonify
-import time
 from flask_cors import CORS
 from web_video import frames_generate
 import os
