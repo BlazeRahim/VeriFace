@@ -59,10 +59,18 @@ def upload_video():
             file_path = os.path.join(app.config['User_Video'], f'{random_filename}.mp4')
             file.save(file_path)
             Photos_Folder = f"videos\out\{random_filename}"
-            frames_generate(file_path,Photos_Folder,random_filename)
+            total_frames = frames_generate(file_path,Photos_Folder,random_filename)
+            face_count = len([f for f in os.listdir(Photos_Folder)])
             if not os.listdir(Photos_Folder):
                 os.rmdir(Photos_Folder)
-                result = {'message': 'No Face Detected in Your Video... We Detect DeepFake Based on Face ... please provide some videos Which have Faces', 'code': 2}
+                result = {'code': 2 ,
+                    'result':{
+                    'message':'No Face Detected in Your Video. We Detect DeepFake Based on Face, please provide some videos Which have Faces.',
+                     "Frames":total_frames,
+                    "Faces":face_count,
+                    "Deepfake":0,
+                    "Real":0
+                }}
                 print(result)
                 return jsonify(result), 300
             test_flow = image_process(Photos_Folder)
@@ -78,7 +86,6 @@ def upload_video():
             
             print(percentage_0)
             print(percentage_1)
-            
             try:
                 shutil.rmtree(Photos_Folder)
             except OSError as e:
@@ -87,11 +94,25 @@ def upload_video():
                 os.remove(file_path)
                 
             result={}
-            if percentage_1 >= 0.5:
-                result = {'message': 'The video Is Authentic', 'code': 0}
+            if percentage_1 >= 50:
+                result = {'code': 0,
+                          'result':{
+                    'message':'The video Is Authentic',
+                    "Frames":total_frames,
+                    "Faces":face_count,
+                    "Deepfake":percentage_0,
+                    "Real":percentage_1
+                }}
                 print(result)
-            elif percentage_1 < 0.5:
-                result = {'message': 'The video Is Deepfake', 'code': 1}
+            elif percentage_1 < 50:
+                result = {'code': 1,
+                          'result':{
+                    'message':'The video Is Deepfake',
+                    "Frames":total_frames,
+                    "Faces":face_count,
+                    "Deepfake":percentage_0,
+                    "Real":percentage_1
+                }}
                 print(result)
             return jsonify(result), 200
     else:

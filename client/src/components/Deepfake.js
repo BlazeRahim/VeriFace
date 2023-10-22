@@ -19,6 +19,7 @@ const inputRef = useRef(null);
   const [ temp , settemp] = useState(videoUrl)
   const [api,setapi] = useState(false);
   const abortcontroller = useRef(null)
+  const [result,setresult]=useState(null)
   useEffect(()=>{
      console.log(video)
     if(video){
@@ -76,7 +77,7 @@ const inputRef = useRef(null);
       settemp(videoUrl)
       const element2 = document.querySelector('.img')
       element2.style.display="flex";
-      element2.style.animation="increaseWidth 10s forwards";
+      element2.style.animation="increaseWidth 30s forwards";
       const element3 = document.querySelector('.image')
       element3.style.animation ="blink 2s infinite"
     }else{
@@ -95,7 +96,6 @@ const inputRef = useRef(null);
     console.log(data)
     console.log("wennjdkfuihywbhdn")
     try{
-      //https://veriface-backd.onrender.com
       abortcontroller.current = new AbortController()
     const res = await fetch("http://localhost:5000/detect",{
       signal:abortcontroller.current.signal,
@@ -125,6 +125,10 @@ const inputRef = useRef(null);
           ele.style.display="flex";
           own.style.display="none";
           setapi(false)
+          const boj ={
+            name:"jama,l"
+          }
+          setresult(msg.result)
           },{once:true})
           },{once:true})
       }
@@ -178,6 +182,47 @@ const inputRef = useRef(null);
       <div className="image">
       <img src={Load} alt="" className='img' id='immg'/>
       </div>
+      {result && (
+      <motion.div className="result"  initial={{ scale:0}}
+      viewport={{ once: true }}
+      whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.4 }}  >
+        <h2 style={result.Faces==0 ? {"color":"#ff3333" , opacity:1} : {fontSize:"1.3rem"} }>{result.message}</h2>
+        {/* <div className="bottom"> */}
+            {/* <div className="west">
+              <p>Total Frames in Video -</p>
+              <p>Total Faces in those frames -</p>
+              <p>Total Deepfake Faces -</p>
+              <p>Total Real Faces -</p>
+            </div>
+            <div className="east">
+            <p>{result.Frames}</p>
+            <p>{result.Faces}</p>
+            <p>{result.Deepfake}</p>
+            <p>{result.Real}</p>
+            </div> */}
+<table  className="bottom">
+  <tr>
+    <td>Total Frames in Video</td>
+    <td>{result.Frames}</td>
+  </tr>
+  <tr>
+    <td>Total Faces in those frames</td>
+    <td>{result.Faces}</td>
+  </tr>
+  <tr>
+    <td>Total Deepfake Faces</td>
+    <td>{result.Deepfake.toFixed(5)}</td>
+  </tr>
+  <tr>
+    <td>Total Real Faces</td>
+    <td>{result.Real.toFixed(5)}</td>
+  </tr>
+</table>
+
+
+        {/* </div> */}
+      </motion.div>
+      )}
       </div>
 
       <div className="right">
@@ -192,6 +237,7 @@ const inputRef = useRef(null);
             setflag(false)
             setreaction(-1)
             handleClick()
+            setresult(null)
           }}>   
             Upload your Videos
           </button>

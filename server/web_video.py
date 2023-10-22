@@ -5,11 +5,12 @@ def frames_generate(video_path, output_base_folder,random_filename):
     face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
     desired_width = 200
     desired_height = 200
-
+    
     if not os.path.exists(output_base_folder):
         os.makedirs(output_base_folder)
     vid = cv2.VideoCapture(video_path)
     currentframe = 0
+    total_frames = int(vid.get(cv2.CAP_PROP_FRAME_COUNT))
     while True:
         success, frame = vid.read()
         if not success:
@@ -30,3 +31,4 @@ def frames_generate(video_path, output_base_folder,random_filename):
                 currentframe += 1
     vid.release()
     cv2.destroyAllWindows()
+    return total_frames

@@ -2,7 +2,9 @@ import React from 'react'
 
 const Creator = () => {
   return (
-    <div>Creator</div>
+    <div className="creator">
+      
+    </div>
   )
 }
 

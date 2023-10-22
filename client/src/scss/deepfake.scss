@@ -35,7 +35,7 @@ body{
     height: 280px;
     object-fit: cover;
     z-index: 1;
-    margin-top: 2%;
+    margin-top: 0%;
 }
 .deepfake .left .image{
     margin-top: -280px;
@@ -65,6 +65,80 @@ body{
     width: 140px;
     height: 130px;
 }
+// ( 173, 216, 230, 0.2 )
+// (2,114,255)
+.deepfake .left .result{
+    position: relative;
+    width: 62%;
+    height: 68%;
+    margin-bottom: 30px;
+    border-radius: 14px;
+    background: radial-gradient(30% 30% at top right, transparent 55%, RGBA(2,114,255, 0.08 ) 51%);
+    box-shadow: 0px 1px 13px -2px rgba(173,216,230,0.24);
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.deepfake .left .result h2{
+    width: 85%;
+    height: 25%;
+    margin: 0;
+    font-size: 0.96rem;
+    margin-left: 10px;
+    margin-top: 10px;
+    line-height: 20px;
+    opacity: 0.73;
+    margin-left: -20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.deepfake .left .result .bottom{
+    width: 95%;
+    height: 70%;
+    margin-bottom: 10px;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    border-collapse: collapse;
+    opacity: 0.9;
+}
+table, th, td {
+    border: 1px solid black;
+  }
+
+  th, td {
+    text-align: center;
+    padding: 10px;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  th {
+    background-color: #333;
+    color: white;
+  }
+
+
+.deepfake .left .result::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    right: -7%;
+    width: 110px; /* Adjust the size to control the shadow size */
+    height: 100px; /* Adjust the size to control the shadow size */
+    background: white; /* Shadow color with opacity */
+    border-radius: 50%;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0); /* Create a box shadow for the top-left corner */
+  }
+
+
+
+
 
 .blink{
     animation: blink 2s 4;
@@ -111,6 +185,9 @@ body{
         transform: scale(1);
     }
 }
+
+
+
 
 
 
