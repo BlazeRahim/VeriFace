@@ -16,7 +16,6 @@ UPLOAD_FOLDER = 'User_Video'
 app.config['User_Video'] = UPLOAD_FOLDER
 model = keras.models.load_model("../model/model.h5")
 target_size=(256,256)
-# Create the upload folder if it doesn't exist
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 Photos_Folder=''
 def generate_random_filename():
@@ -31,12 +30,10 @@ def check_abort_request():
         # In this example, we simply print a message
         print("Abort request received on the server")
         
-
 @app.route("/")
 def hello_world():
    return jsonify({"message": "heelooo"}), 200
-   
-   
+     
 def image_process(directory_path):
     image_paths = [f for f in os.listdir(directory_path) if f.endswith(('.JPG','.jpg', '.png', '.jpeg'))]
     data_frame =[]
@@ -48,7 +45,6 @@ def image_process(directory_path):
         normalized_image_data = (img_array * 255).astype(np.uint8)
         data_frame.append(normalized_image_data)
     return data_frame
-
 
 @app.route("/detect", methods=['POST'])
 def upload_video():
@@ -84,14 +80,12 @@ def upload_video():
             print(percentage_0)
             print(percentage_1)
             
-            
             try:
                 shutil.rmtree(Photos_Folder)
             except OSError as e:
                 print(f"Error removing directory {Photos_Folder}: {e}")
             if os.path.exists(file_path):
                 os.remove(file_path)
-                
                 
             result={}
             if percentage_1 >= 0.5:
