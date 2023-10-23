@@ -74,7 +74,8 @@ body{
     margin-bottom: 30px;
     border-radius: 14px;
     background: radial-gradient(30% 30% at top right, transparent 55%, RGBA(2,114,255, 0.08 ) 51%);
-    box-shadow: 0px 1px 13px -2px rgba(173,216,230,0.24);
+    // box-shadow: 0px 1px 13px -2px rgba(173,216,230,0.24);
+    box-shadow: 0px 0px 9px -1px rgba(0,0,0,0.4);
     display: flex;
     justify-content:center;
     align-items: center;
@@ -90,7 +91,7 @@ body{
     margin-top: 10px;
     line-height: 20px;
     opacity: 0.73;
-    margin-left: -20px;
+    margin-left: -50px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -132,7 +133,8 @@ table, th, td {
     width: 110px; /* Adjust the size to control the shadow size */
     height: 100px; /* Adjust the size to control the shadow size */
     background: white; /* Shadow color with opacity */
-    border-radius: 50%;
+    border-bottom-left-radius: 50%;
+    // border-radius: 50%;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0); /* Create a box shadow for the top-left corner */
   }
 
