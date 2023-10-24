@@ -125,9 +125,6 @@ const inputRef = useRef(null);
           ele.style.display="flex";
           own.style.display="none";
           setapi(false)
-          const boj ={
-            name:"jama,l"
-          }
           setresult(msg.result)
           },{once:true})
           },{once:true})
@@ -186,20 +183,7 @@ const inputRef = useRef(null);
       <motion.div className="result"  initial={{ scale:0}}
       viewport={{ once: true }}
       whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.4 }}  >
-        <h2 style={result.Faces==0 ? {"color":"#ff3333" , opacity:1} : {fontSize:"1.3rem"} }>{result.message}</h2>
-        {/* <div className="bottom"> */}
-            {/* <div className="west">
-              <p>Total Frames in Video -</p>
-              <p>Total Faces in those frames -</p>
-              <p>Total Deepfake Faces -</p>
-              <p>Total Real Faces -</p>
-            </div>
-            <div className="east">
-            <p>{result.Frames}</p>
-            <p>{result.Faces}</p>
-            <p>{result.Deepfake}</p>
-            <p>{result.Real}</p>
-            </div> */}
+        <h2 style={result.Faces===0 ? {"color":"#ff3333" , opacity:1} : {fontSize:"1.3rem"} }>{result.message}</h2>
 <table  className="bottom">
   <tr>
     <td>Total Frames in Video</td>
