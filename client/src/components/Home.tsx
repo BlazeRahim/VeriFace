@@ -1,12 +1,13 @@
 import React from 'react'
 import '../scss/Home.scss'
 import Timepass from '../images/Untitled design (14).png'
+import Home_front from '../images/Home-front1.png'
 import Scroll from '../utils/scroll';
 const Home = () => {
   return (
     <div className="home">
         <div className="left">
-           <img src={Timepass} alt="" />
+           <img src={Home_front} alt="" />
         </div>
         <div className="right">
           <div className="content">

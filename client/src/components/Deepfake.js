@@ -194,12 +194,12 @@ const inputRef = useRef(null);
     <td>{result.Faces}</td>
   </tr>
   <tr>
-    <td>Total Deepfake Faces</td>
-    <td>{result.Deepfake.toFixed(5)}</td>
+    <td>Total Deepfake Faces %</td>
+    <td>{result.Deepfake.toFixed(2)}%</td>
   </tr>
   <tr>
-    <td>Total Real Faces</td>
-    <td>{result.Real.toFixed(5)}</td>
+    <td>Total Real Faces %</td>
+    <td>{result.Real.toFixed(2)}%</td>
   </tr>
 </table>
 

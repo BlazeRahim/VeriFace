@@ -1,4 +1,3 @@
-// import React from 'react'
 import '../scss/footer.scss'
 import { Link } from 'react-router-dom';
 import { FaFacebook, FaGithub, FaTwitter } from "react-icons/fa";
@@ -10,7 +9,7 @@ const footer = () => {
             <h4>
               Contact
             </h4>
-            <h5 >
+            <h5>
               You can find us on any of these platforms
             </h5>
             <div className="links">
@@ -41,20 +40,13 @@ const footer = () => {
               <div className="one">
                 <h1>Useful Links</h1>
                 <div className="item">
-                    {/* <Link
+                      <a href="/about" className="link">About us</a>
+                    <a 
                       className="link"
-                      to="/about"
-                      aria-label="About us Link"
-                    >
-                      About Us
-                    </Link>
-                    <Link
-                      className="link"
-                      to="http://www.github.com/jamal108"
-                      aria-label="Github Link"
+                      href="http://www.github.com/jamal108"
                     >
                       Github
-                    </Link> */}
+                    </a>
                     </div>
               </div>
               <div className="two">
@@ -62,13 +54,12 @@ const footer = () => {
                   Other Resources
                 </h1>
                 <div className="item">
-                    {/* <Link
+                    <a 
                     className='link'
-                    to="http://www.github.com/jamal108"
-                      aria-label="Contact Us Link"
+                    href="http://www.github.com/jamal108"
                     >
                       Contact Us
-                    </Link> */}
+                    </a>
                     </div>
               </div>
             </div> 

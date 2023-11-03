@@ -11,8 +11,10 @@ const Games = () => {
         <div className="play">
           <div className="box">
           <img src={Deep} alt="ef" />
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam fuga eaque consequatur atque, velit aperiam. Aspernatur culpa consequuntur aliquam amet sit, voluptatem doloribus corrupti possimus quas molestiae at explicabo fuga?</p>
+          <div className="theory">
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam fuga eaque conseatem doloribus corrupti possimus quas molestiae at explicabo fuga?</p>
           <button>Start</button>
+          </div>
           </div>
         </div>
     </div>
