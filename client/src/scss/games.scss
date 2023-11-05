@@ -1,4 +1,6 @@
 .games{
+    position: relative;
+    margin-top: 40px;
     width: 100%;
     height: 95vh;
     display: flex;
@@ -22,7 +24,7 @@
     align-items: center;
 }
 .games .play .box {
-    margin-top: -30px;
+    margin-top: -50px;
     width: 55%;
     height: 70%;
     background-color: white;
@@ -33,11 +35,243 @@
     align-items: center;
 }
 .games .play .box img{
-    width: 40%;
-    border: 1px solid red;
-    height: 210px;
+    margin-left: -20px;
+    width: 42%;
+    // border: 1px solid red;
+    height: 220px;
+    transform: rotate(-13deg);
 }
 
 .games .play .box .theory{
+    width: 45%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: left;
+}
+
+.games .play .box .theory button{
+    background-color: #0272FF;
+    border: none;
+    color: white;
+    width: 33%;
+    height: 40px;
+    font-size: 1.06rem;
+    border-radius: 6px;
+    font-weight: 540;
+    margin-top: 15px;
+    transition: 0.4s ease;
+}
+.games .play .box .theory p{
+    margin: 0.3rem;
+    font-size: 0.9rem;
+}
+.games .play .box .theory p span{
+    color: #0272FF;
+    font-size: 1rem;
+    font-weight: 450;
+    font-style: italic;
+}
+
+.games .play .box .theory button:hover{
+    background-color: #0249B3;
+    transform: scale(1.06);
+    cursor: pointer;
+}
+
+
+.games .cover{
+   width: 100vw;
+   height: 100vh;
+   position: absolute;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.games .cover .block{
+    background-color: white;
+    width: 82%;
+    height: 92.5%;
+    position: relative;
+    top: 2.5%;
+    border-radius: 12px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.games .cover .block .up{
+    width: 100%;
+    height: 16%;
+    display: flex;
+    justify-content: space-between;
+}
+.games .cover .block .up img{
+    margin-left: 10px;
+    width: 240px;
+    height: 95px;
+}
+.games .cover .block .up .icon{
+    width: 30px;
+    height: 30px;
+    position: relative;
+    top: 10px;
+    right:10px;
+    border-radius: 4px;
+    opacity: 0.6;
+}
+.games .cover .block .up .icon .css-i4bv87-MuiSvgIcon-root{
+    width: 75%;
+    height: 75%;
+    opacity: 0.6;
+}
+.games .cover .block .up .icon:hover{
+    background-color: #F5F5F7;
+    cursor: pointer;
+}
+.games .cover .block .rules{
+    width:80%;
+    height: 65%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+.games .cover .block .rules ul{
+    margin-bottom: 30px;
+    width: 60%;
+}
+.games .cover .block .rules button{
+    // margin-top: 100px;
+    background-color: #0272FF;
+    border: none;
+    color: white;
+    width: 150px;
+    height: 50px;
+    font-size: 1.09rem;
+    border-radius: 6px;
+    font-weight: 540;
+    margin-top: 15px;
+    transition: 0.4s ease;
+}
+.games .cover .block .rules button:hover{
+    background-color: #0249B3;
+    transform: scale(1.03);
+    cursor: pointer;
+}
+
+.games .cover .block  .image{
+    position: absolute;
+    bottom: 0;
+    right: -9.6%;
+    width: 290px;
+    height: 70%;
+    opacity: 0.4;
+}
+
+
+
+.games .cover .block .box{
+    width:90%;
+    height: 80%;
+    display: flex;
+    margin: auto;
+    justify-content:center;
+    align-items: flex-start;
+    display: none;
+}
+.games .cover .block  .box .left{
+   width: 50%;
+   height: 100%;
+}
+.games .cover .block  .box .left video{
+    width: 100%;
+    height: 70%;
+}
+
+.games .cover .block  .box .left .appear{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+.games .cover .block  .box .left h1{
+    font-size: 1.2rem;
+    font-weight: 440;
+}
+.games .cover .block  .box .left .appear h1{
+    margin-bottom: 0rem;
+    font-size: 1.2rem;
+    font-weight: 440;
+}
+.games .cover .block  .box .right{
     width: 50%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 3rem;
+}
+.games .cover .block  .box .right .upar{
+    width: 70%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1.6rem;
+}
+.games .cover .block  .box .right .upar button{
+    width: 150px;
+    height: 90px;
+    background-color: none;
+    border-radius: 14px;
+    border: none;
+    background-color: white;
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #55555500),var(--tw-ring-shadow, 0 0 #55555500),0px 0px 10px rgba(69, 69, 69, .1);
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: 0.4s ease;
+}
+.games .cover .block  .box .right .upar .correct{
+    border: 5px solid #FF2A2A;
+ }
+ .games .cover .block  .box .right  .upar .wrong{
+     border: 5px solid #0ED23A;
+  }
+.games .cover .block  .box .right .upar button:hover{
+    transform: scale(1.09);
+}
+
+
+.games .cover .block  .box .right .niche{
+    width: 70%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.games .cover .block  .box .right .niche button{
+background-color: #0272FF;
+border: none;
+color: white;
+width: 33%;
+height: 40px;
+font-size: 1.06rem;
+border-radius: 6px;
+font-weight: 540;
+margin-top: 100px;
+transition: 0.4s ease;
+}
+.games .cover .block  .box .right .niche button:hover{
+    background-color: #0249B3;
+    transform: scale(1.03);
+    cursor: pointer;
 }

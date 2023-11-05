@@ -26,7 +26,7 @@ const inputRef = useRef(null);
       console.log("video yes")
        const element = document.querySelector(".down");
         element.style.display="flex";
-        element.style.borderTop="2px dashed black"
+        element.style.borderTop="3px dashed #bec0da;"
     }else{
       console.log("video no")
       const element = document.querySelector(".down");
@@ -48,8 +48,10 @@ const inputRef = useRef(null);
       return;
     }
     if (fileObj) {
-      if ( fileObj.size <= 30 * 1024 * 1024) {
-        setVideoUrl(URL.createObjectURL(event.target.files[0]));
+      if ( fileObj.size <= 30 * 1024 * 1024 && fileObj.type === 'video/mp4') {
+        console.log(fileObj)
+        setVideoUrl(URL.createObjectURL(fileObj));
+        console.log(URL.createObjectURL(fileObj))
          const data = new FormData()
          data.append("file",fileObj)
          setvideo(data)
@@ -77,7 +79,7 @@ const inputRef = useRef(null);
       settemp(videoUrl)
       const element2 = document.querySelector('.img')
       element2.style.display="flex";
-      element2.style.animation="increaseWidth 30s forwards";
+      element2.style.animation="increaseWidth 50s forwards";
       const element3 = document.querySelector('.image')
       element3.style.animation ="blink 2s infinite"
     }else{
@@ -160,16 +162,47 @@ const inputRef = useRef(null);
     abortcontroller.current && abortcontroller.current.abort()
   }
 
+  const buttony = document.querySelector('#helloo'); // You can select the button by its ID, class, or other attributes.
+  const children = document.querySelectorAll('.child');
+  if(buttony && children){
+    buttony.addEventListener('mouseover', () => {
+      children.forEach(child => {
+        child.style.transform = 'scale(1.1)';
+      });
+    });
+    
+    buttony.addEventListener('mouseout', () => {
+      children.forEach(child => {
+        child.style.transform = 'none';
+      });
+    });
+  }
+
+
   return (
     <div className="deepfake">
       <div className="left" id='left'>
-      {videoUrl && (
+      {videoUrl ? (
         <motion.video initial={{ scale:0}}
         viewport={{ once: true }}
         whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 1 }}  className='videowala'>
           <source src={videoUrl} type="video/mp4" />
-          Your browser does not support the video tag.
+          {/* Your browser does not support the video tag. */}
         </motion.video>
+      ) : (
+       <div id="helloo"  onClick={(e)=>{
+          e.preventDefault()
+          setvideo(null)
+          setVideoUrl(null)
+          setflag(false)
+          setreaction(-1)
+          handleClick()
+          setresult(null)
+          e.stopPropagation()
+        }}>
+          <p className='child'>Upload your Videos</p>
+          <p className='child'>Upto 30 mb of video & mp4 format only!</p>
+        </div>
       )}
       {reaction!==-1 && (
         <div className="mt">
@@ -179,6 +212,11 @@ const inputRef = useRef(null);
       <div className="image">
       <img src={Load} alt="" className='img' id='immg'/>
       </div>
+      {reaction===-1 && (
+         <div className="skel">
+          <p>Result will be displayed here.</p>
+         </div>
+      )}
       {result && (
       <motion.div className="result"  initial={{ scale:0}}
       viewport={{ once: true }}
@@ -226,7 +264,7 @@ const inputRef = useRef(null);
             Upload your Videos
           </button>
           <input type="file" id='Videoupload' ref={inputRef} onChange={handleFileChange} />
-          <p>Upto 30 mb of video & mp4 format only !</p>
+          <p>Upto 30 mb of video & mp4 format only!</p>
           </motion.div>
           <motion.div className="down" initial={{ scale:0}}
         viewport={{ once: true }}

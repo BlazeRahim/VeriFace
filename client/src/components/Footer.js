@@ -1,5 +1,4 @@
 import '../scss/footer.scss'
-import { Link } from 'react-router-dom';
 import { FaFacebook, FaGithub, FaTwitter } from "react-icons/fa";
 const footer = () => {
   return (

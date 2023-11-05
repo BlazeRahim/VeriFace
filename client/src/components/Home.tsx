@@ -1,6 +1,5 @@
 import React from 'react'
 import '../scss/Home.scss'
-import Timepass from '../images/Untitled design (14).png'
 import Home_front from '../images/Home-front1.png'
 import Scroll from '../utils/scroll';
 const Home = () => {

@@ -12,3 +12,7 @@
   align-items: center;
   flex-direction: column;
 }
+body{
+  background-color: white;
+  overflow-x: hidden; 
+}

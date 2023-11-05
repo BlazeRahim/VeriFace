@@ -37,6 +37,53 @@ body{
     z-index: 1;
     margin-top: 0%;
 }
+
+.deepfake .left #helloo{
+    margin-top: 0%;
+    margin-right: 0%; 
+    width: 60%;
+    height: 280px;
+    z-index: 1000;
+    border: 3px dashed #bec0da;
+    margin-bottom: 1rem;
+    background-color: #efeef3;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0.6;
+    transition: 0.3s ease;
+}
+.deepfake .left #helloo:hover{
+    cursor: pointer;
+}
+.deepfake .left #helloo:hover > .deepfake .left #helloo p{
+    transform: scale(1.1);
+}
+
+.deepfake .left #helloo p{
+    margin-bottom: 0.3rem;
+    margin-top: 0.3rem;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    transition: 0.3s ease-in;
+}
+.deepfake .left .skel{
+    margin-top: 1.4rem;
+    margin-right: 0%; 
+    width: 60%;
+    height: 42%;
+    z-index: 100;
+    border: 3px dashed #bec0da;
+    background-color: #efeef3;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 0.9rem;
+    opacity: 0.6;
+}
+
 .deepfake .left .image{
     margin-top: -280px;
     margin-right: 0%; 
@@ -71,7 +118,7 @@ body{
     position: relative;
     width: 62%;
     height: 68%;
-    margin-bottom: 30px;
+    margin-bottom: 18px;
     border-radius: 14px;
     background: radial-gradient(30% 30% at top right, transparent 55%, RGBA(2,114,255, 0.08 ) 51%);
     // box-shadow: 0px 1px 13px -2px rgba(173,216,230,0.24);
@@ -240,7 +287,7 @@ table, th, td {
     font-size: 0.9rem;
 }
 .deepfake .right .box .down{
-    border-top: 2px dashed black;
+    border-top: 3px dashed #bec0da;
     width: 90%;
     height: 40%;
     display: flex;
