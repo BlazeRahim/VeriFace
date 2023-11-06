@@ -17,6 +17,9 @@ const Games = () => {
   const box = useRef(null)
   const game = useRef(null)
   const [checked,setchecked] = useState(false)
+  const [fast , setfast] = useState(false)
+  const [finish , setfinish] = useState(false)
+  const [score,setscore] = useState(0)
  useEffect(()=>{
     if(flag===true){
       document.body.style.backgroundColor = "#605e5e";
@@ -33,7 +36,7 @@ useEffect(()=>{
    if(correct===true){
      setTimeout(()=>{
         setcorrect(false)
-     },9000)
+     },2000)
    }
     // eslint-disable-next-line
 },[correct])
@@ -51,6 +54,8 @@ useEffect(()=>{
    }
     // eslint-disable-next-line
 },[rule])
+
+
 
   return ( 
     <div className="games" ref={game}>
@@ -119,28 +124,30 @@ useEffect(()=>{
               </div>
              ) :(
               <>
-            {data?.map((item,idx)=>(
-            <motion.div className="box" id={`id${idx}`} 
+            {finish === false && data?.map((item,idx)=>(
+            <motion.div className="box" key={idx} id={`id${idx}`} 
             initial={{ opacity: 0, x: 1000 }}
             viewport={{ once: true }}
             whileInView={{ opacity: 1, x: 0 }} transition={{duration:0.7 , type:"Spring" , bounce:0.8}} >
               <div className="left">
-              {checked===true && item.result===0 && (
-                  <div className="appear">
+              {fast===true && item.result===0 && (
+                  <div className="appear" initial={{ scale:0}}
+                  viewport={{ once: true }}
+                  whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 4 , type:"Spring" , bounce:0.9  }}  >
                   <h1>The video was DeepFake edit , Here is the Original video.</h1>
-              <video loop autoplay controls>
+              <video loop autoPlay controls>
               <source src={item.real} type="video/mp4" />
               Your browser does not support the video tag.
               </video>
                   </div>
               )}
-              {checked===true && item.result===1 && (
+              {fast===true && item.result===1 && (
                   <motion.h1 initial={{ scale:0}}
                   viewport={{ once: true }}
-                  whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 1 }}>The Video is Authentic</motion.h1>
+                  whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.3 }}>The Video is Authentic</motion.h1>
               )}
-              {(checked===false || item.result===1) && (
-              <video loop autoplay controls>
+              {(fast===false || item.result===1) && (
+              <video loop autoPlay controls>
               <source src={item.video} type="video/mp4" />
               Your browser does not support the video tag.
               </video>
@@ -148,19 +155,37 @@ useEffect(()=>{
               </div>
               <div className="right">
                 {checked===false && (
-                <div className="upar">
-                <button className='correct' onClick={(e)=>{
+                <div className="upar" id={`upar${idx}`} >
+                <button className='wrong' id={`wrong${idx}`} onClick={(e)=>{
                   e.preventDefault()
-                  setchecked(true)
+                  setfast(true)
                   if(item.result===0){
+                    let tem = score
+                    setscore(++tem)
                     setcorrect(true)
+                    setchecked(true)
+                  }else{
+                    let btn = document.querySelector(`#wrong${idx}`)
+                    btn.style.animation="vibrate 0.7s ease"
+                    btn.addEventListener("animationend",()=>{
+                      setchecked(true)
+                    });
                   }
                 }}>Deepfake</button>
-                <button className='wrong' onClick={(e)=>{
+                <button className='correct' id={`correct${idx}`}  onClick={(e)=>{
                   e.preventDefault()
-                  setchecked(true)
+                  setfast(true)
                   if(item.result===1){
+                    let tem = score
+                    setscore(++tem)
                     setcorrect(true)
+                    setchecked(true)
+                  }else{
+                    let btn = document.querySelector(`#correct${idx}`)
+                    btn.style.animation="vibrate 0.7s ease"
+                    btn.addEventListener("animationend",()=>{
+                      setchecked(true)
+                    })
                   }
                 }}>Real</button>
                 </div>
@@ -171,12 +196,21 @@ useEffect(()=>{
                   onClick={(e)=>{
                     e.preventDefault()
                     let el1 = document.querySelector("#id"+idx)
-                    el1.style.display="none"
-                    let next = idx+1;
-                    let el2 = document.querySelector("#id"+next)
-                    el2.style.display="flex"
-                    setchecked(false)
-                    setcorrect(false)
+                    el1.style.position="relative"
+                    el1.style.animation="left_go 1s ease"
+                    el1.addEventListener("animationend", () => {
+                      el1.style.display="none"
+                      let next = idx+1;
+                      if(next<data.length){
+                      let el2 = document.querySelector("#id"+next)
+                      el2.style.display="flex"
+                      }else{
+                        setfinish(true)
+                      }
+                      setchecked(false)
+                      setcorrect(false)
+                      setfast(false)
+                    });
                   }}
                   >Next</button>
                    </div>
@@ -184,6 +218,22 @@ useEffect(()=>{
               </div>
                   </motion.div>
                 ))}
+                {finish===true && (
+                    <div className="finish">
+                      <div className="score">
+                        <h1>Your Score :</h1>
+                        <h3>{score}/{data.length} correct guess    |    {data.length - score} Wrong guess</h3>
+                      </div>
+                      <div className="more">
+                        <h1>Similar Challenges -</h1>
+                        <div className="boxes">
+                          <div className="box"></div>
+                          <div className="box"></div>
+                          <div className="box"></div>
+                        </div>
+                      </div>
+                    </div>
+                )}
                 </>
              )}
           </motion.div>
