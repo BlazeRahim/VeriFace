@@ -88,7 +88,7 @@ const showCard=(idxx)=>{
     });
 }
 showCard(idxx)
-
+console.log(edarr)
 function nextCard() {
   console.log(idxx)
   let currindex = idxx + 1;
@@ -141,21 +141,6 @@ function prevCard() {
             e.preventDefault()
             nextCard()
           }}/>}
-          {/* <div className="box">
-          <img src={Deep} alt="ef" />
-          <div className="theory">
-          <p>Test your skills and see if you can spot the difference between real videos and deepfake creations <span>without audio.</span></p>
-          <p> Focus on face masking and lip syncing to spot the difference between real and fake.</p>
-          <button onClick={(e)=>{
-            e.preventDefault()
-            setflag(true)
-            setrule(true) 
-            setdata(NoAudio) 
-            setedition(0)  
-            setchecked(false)
-          }}>Start</button>
-          </div>
-          </div> */}
         </div>
         {flag===true && (
           <div className="cover">
@@ -172,8 +157,8 @@ function prevCard() {
             )}
           <div className="up">
                    <img src={Logo} alt="asd" />
-                   <h1>DeepFake Challenge - <span>{edarr[0]}</span> 
-                   </h1>
+                   {/* <h1>DeepFake Challenge - <span>{edarr[0]}</span> 
+                   </h1> */}
                    <CloseIcon className='icon' onClick={(e)=>{
                     e.preventDefault()
                     document.body.style.backgroundColor = "white";
@@ -201,15 +186,14 @@ function prevCard() {
                   <button onClick={(e)=>{
                     e.preventDefault()
                     setrule(false) 
-                  }}>Lesss goo</button>
+                  }}>Vamoos !</button>
               </div>
              ) :(
               <>
+                          {/* initial={{ opacity: 0, x: 0 }}
+            whileInView={{ opacity: 1, x: 0 }} transition={{duration:0.7 , type:"Spring" , bounce:0.8}} */}
             {finish === false && data?.map((item,idx)=>(
-            <motion.div className="box" key={idx} id={`id${idx}`} 
-            initial={{ opacity: 0, x: 1000 }}
-            viewport={{ once: true }}
-            whileInView={{ opacity: 1, x: 0 }} transition={{duration:0.7 , type:"Spring" , bounce:0.8}} >
+            <motion.div className="box" key={idx} id={`id${idx}`}>
               <div className="left">
               {fast===true && item.result===0 && (
                   <div className="appear" initial={{ scale:0}}
