@@ -24,6 +24,7 @@ const Games = () => {
   const [finish , setfinish] = useState(false)
   const [score,setscore] = useState(0)
   const [edition,setedition]=useState(-1)
+  const [final , setfinal] = useState(false)
   console.log(edition)
   const edarr = ["Celebrity Edition" , "Politician Edition" , "Random YT Video"]
  useEffect(()=>{
@@ -32,6 +33,10 @@ const Games = () => {
       document.body.style.overflowY="hidden";
       document.body.style.overflowX="hidden";
       const temp =game.current;
+      const ar = document.querySelectorAll(".boxu")
+      for(var i=0;i<ar.length;i++){
+      ar[i].style.backgroundColor="#white"
+      }
       temp.style.backgroundColor="#605e5e";
       scroll("games")
     }
@@ -165,6 +170,10 @@ function prevCard() {
                     document.body.style.overflowY="scroll";
                     const temp =game.current;
                     temp.style.backgroundColor="#f5f5f7";
+                    const ar = document.querySelectorAll(".boxu")
+                    for(var i=0;i<ar.length;i++){
+                    ar[i].style.backgroundColor="#white"
+                    }
                     scroll("games")
                     setflag(false)
                     setrule(false)
@@ -232,6 +241,7 @@ function prevCard() {
                     setscore(++tem)
                     setcorrect(true)
                     setchecked(true)
+                    setfinal(true)
                   }else{
                     let btn = document.querySelector(`#wrong${idx}`)
                     btn.style.animation="vibrate 0.7s ease"
@@ -248,6 +258,7 @@ function prevCard() {
                     setscore(++tem)
                     setcorrect(true)
                     setchecked(true)
+                    setfinal(true)
                   }else{
                     let btn = document.querySelector(`#correct${idx}`)
                     btn.style.animation="vibrate 0.7s ease"
@@ -259,7 +270,12 @@ function prevCard() {
                 </div>
                 )}
                 {checked===true &&(
-               <div className="niche">
+               <div className="niche" id={final===true ? "correct" : "wrong"} >
+                {final===true ? (
+                   <h2>You Guessed it Correct</h2>
+                ) :(
+                   <h2>You Guess it Wrong</h2>
+                )}
                   <button 
                   onClick={(e)=>{
                     e.preventDefault()
@@ -278,9 +294,10 @@ function prevCard() {
                       setchecked(false)
                       setcorrect(false)
                       setfast(false)
+                      setfinal(false)
                     });
                   }}
-                  >Next</button>
+                  >Next Video</button>
                    </div>
                 )}
               </div>

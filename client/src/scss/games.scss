@@ -148,6 +148,7 @@
    display: flex;
    justify-content: center;
    align-items: center;
+   z-index: 2000;
 }
 .games .cover .block{
     background-color: white;
@@ -286,6 +287,9 @@
     width: 70%;
     text-align: left;
 }
+.games .cover .block  .box .left .appear video {
+    margin-top: -0.9rem;
+}
 .games .cover .block  .box .right{
     width: 50%;
     height: 80%;
@@ -331,13 +335,46 @@
 
 .games .cover .block  .box .right .niche{
     width: 70%;
-    height: 70%;
+    height: 40%;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    gap: 1.3rem;
+}
+.games .cover .block  .box .right .niche h2{
+    margin: 0;
+    margin-left: 50%;
+    font-size: 1rem;
+    font-weight: 450;
+}
+
+
+.games .cover .block  .box .right #correct{
+    border: 1px solid #87CF7A;
+    background-color: #F1F9F0;
+}
+.games .cover .block  .box .right #correct button{
+    background-color: #5CB85C;
+}
+.games .cover .block  .box .right #correct button:hover{
+    background-color: #54aa54;
+}
+
+
+
+
+.games .cover .block  .box .right #wrong button{
+    background-color: #D9534F;
+}
+.games .cover .block  .box .right #wrong button:hover{
+    background-color: #c04b47;
+}
+.games .cover .block  .box .right #wrong{
+    background-color: #F9F0F0;
+    border: 1px solid #CF7A7A;
 }
 .games .cover .block  .box .right .niche button{
-background-color: #0272FF;
 border: none;
 color: white;
 width: 33%;
@@ -345,11 +382,10 @@ height: 40px;
 font-size: 1.06rem;
 border-radius: 6px;
 font-weight: 540;
-margin-top: 100px;
+// margin-top: 100px;
 transition: 0.4s ease;
 }
 .games .cover .block  .box .right .niche button:hover{
-    background-color: #0249B3;
     transform: scale(1.03);
     cursor: pointer;
 }
@@ -469,7 +505,7 @@ transition: 0.3s ease;
 
 @media screen and (max-width:700px){
     .games{
-        height: 70vh;
+        height: 75vh;
         gap: 0;
     }
     .games h2{
@@ -585,3 +621,159 @@ transition: 0.3s ease;
         width: 100%;
     }
 }
+
+
+    @media screen and (max-width:380px){
+        .games{
+            height: 85vh;
+            gap: 0;
+        }
+        .games h2{
+            font-size: 1.4rem;
+        }
+        .games .play{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .games .play .card{
+            max-width: 88%;
+            width: 88%;
+            height: 85%;
+        }
+        .games .play .card .boxu{
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .games .play .card .boxu img{
+            height: 45%;
+            width: 85%;
+            margin-top: 20px;
+        }
+        .games .play .card .boxu .theory{
+            height: 50%;
+            width: 95%;
+            margin-top: -0.6rem;
+        }
+        .games .play .arrow{
+            margin-top: -50px;
+            width: 6%;
+            height: 80px;
+            opacity: 0.7;
+            cursor: pointer;
+        }
+        .games .play .card .boxu .theory button{
+            margin-top: 0.3rem;
+        }
+        .games .cover{
+            width: 100vw;
+            height: 100vh;
+            margin-top: 2.6rem;
+        }
+        .games .cover .block{
+            width: 92.5%;
+            height: 90%;
+        }
+        .games .cover .block .image{
+            width: 230px;
+            height: 45%;
+            right: -24%;
+        }
+        .games .cover .block .up{
+            width: 100%;
+            height: 12%;
+        }
+        .games .cover .block .up img{
+            margin-top: 0.5rem;
+            width: 220px;
+            height: 100px;
+        }
+        .games .cover .block .up h1{
+            font-size: 0.9rem;
+        }
+        .games .cover .block .up h1 span{
+            font-size: 0.92rem;
+        }
+        .games .cover .block .rules{
+            width: 85%;
+            height: 80%;
+            gap: 0rem;
+        }
+        .games .cover .block .rules h1{
+            font-size: 1.6rem;
+            font-weight: 510;
+        }
+        .games .cover .block .rules ul{
+            width: 80%;
+            gap: 0.3rem;
+            font-size: 0.95rem;
+        }
+        .games .cover .block .box{
+            width: 90%;
+            height: 80%;
+            z-index: 10000;
+            flex-direction: column;
+        }
+        .games .cover .block .box .left{
+            width: 100%;
+            height: 50%;
+            align-items: flex-start;
+        }
+        .games .cover .block .box .left video{
+            height: 80%;
+        }
+        .games .cover .block .box .right{
+            width: 100%;
+            height: 40%;
+            justify-content: flex-start;
+        }
+        .games .cover .block .box .right .upar{
+            width: 85%;
+            flex-direction: row;
+        }
+        .games .cover .block .box .left .appear{
+            height: 100%;
+            width: 100%;
+            margin-top: -30px;
+        }
+        .games .cover .block .box .left .appear .ans{
+            width: 100%;
+        }
+        .games .cover .block .box .left .appear video{
+            height: 100%;
+        }
+        .games .cover .block .box .left .appear .ans h1{
+            width: 100%;
+            font-size: 1.1rem;
+        }
+
+        .games .cover .block  .box .right .niche{
+            width: 100%;
+            height: 60%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 1.3rem;
+        }
+        .games .cover .block  .box .right .niche h2{
+            margin: 0;
+            margin-left: 50%;
+            font-size: 1rem;
+            font-weight: 450;
+        }
+
+        .games .cover .block  .box .right .niche button{
+            border: none;
+            color: white;
+            width: 40%;
+            height: 42px;
+            font-size: 1.06rem;
+            border-radius: 6px;
+            font-weight: 540;
+            // margin-top: 100px;
+            transition: 0.4s ease;
+            }
+    }
