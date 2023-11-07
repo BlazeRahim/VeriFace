@@ -63,44 +63,58 @@ useEffect(()=>{
 
 // let currindex=0
 
-const [ idx , setidx] = useState(0)
+const [ idxx , setidxx] = useState(0)
+
 const cards = document.querySelectorAll('.boxu');
 console.log("card" + cards.length)
-console.log("IDXX" + idx)
-function showCard() {
+console.log("IDXX" + idxx)
+const showCard=(idxx)=>{
+    for(let i=0;i<cards.length;i++){
+      if(i!==1){
+      const el = document.querySelector("#boxu"+i)
+      el.style.zIndex=0;
+      }else{
+        const el = document.querySelector("#boxu"+i)
+        el.style.zIndex=1000;
+      }
+    }
     cards.forEach((card, index) => {
-      console.log(index-idx)
-        card.style.transform = `translateX(${(index - idx) * 120}%)`;
+      console.log(idxx)
+      if(index===-679){
+        card.style.transform = `translateX(0)`;
+      }else{
+        card.style.transform = `translateX(${(index - idxx) * 120}%)`;
+      }
     });
 }
+showCard(idxx)
 
 function nextCard() {
-  let currindex = idx + 1;
+  console.log(idxx)
+  let currindex = idxx + 1;
   const ele = document.querySelector("#boxu"+currindex)
   ele.style.transform = "translateX(0%)"
-  const el1 = document.querySelector("#boxu"+idx)
+  const el1 = document.querySelector("#boxu"+idxx)
   el1.style.animation="prev 1s ease"
   console.log(currindex)
-  setidx(currindex)
-  // showCard();
+  setidxx(currindex)
 }
 function prevCard() {
-  let currindex = (idx - 1);
+  let currindex = (idxx - 1);
   const ele = document.querySelector("#boxu"+currindex)
   ele.style.transform = "translateX(0%)"
-  const el1 = document.querySelector("#boxu"+idx)
+  const el1 = document.querySelector("#boxu"+idxx)
   el1.style.animation="trans 1s ease"
-  setidx(currindex)
-  // showCard();
+  setidxx(currindex)
 }
-showCard();
+
   return ( 
     <div className="games" ref={game}>
        <motion.h2 initial={{ opacity: 0, x: -150 }}
         viewport={{ once: true }}
         whileInView={{ opacity: 1, x: 0 }} transition={{duration:0.7 , type:"Spring" , bounce:0.4}}>DeepFake challenge</motion.h2>
         <div className="play">
-          {(idx > 0) && <ArrowBackIosNewIcon className='arrow' onClick={(e)=>{
+          {(idxx > 0) && <ArrowBackIosNewIcon className='arrow' onClick={(e)=>{
             e.preventDefault()
             prevCard()
           }}/>}
@@ -123,7 +137,7 @@ showCard();
               </div>
           ))}
           </div>
-           {(idx !== Quiz.length-1) && <ArrowForwardIosIcon className='arrow' onClick={(e)=>{
+           {(idxx !== Quiz.length-1) && <ArrowForwardIosIcon className='arrow' onClick={(e)=>{
             e.preventDefault()
             nextCard()
           }}/>}

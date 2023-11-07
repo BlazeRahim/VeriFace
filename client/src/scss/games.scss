@@ -84,6 +84,10 @@
     gap: 1rem;
     transition: transform 1s;
 }
+
+.games .play .card #boxu0{
+    z-index: 1000;
+}
 .games .play .card .boxu img{
     margin-left: -10px;
     width: 42%;
