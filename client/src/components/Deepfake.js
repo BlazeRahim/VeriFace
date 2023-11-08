@@ -255,6 +255,9 @@ const inputRef = useRef(null);
       </div>
 
       <div className="right">
+        <div className="disc">
+        <p>Veriface aims to give an opinion about the scanned video and is not responsible for the result. As Veriface is still in beta, the results should not be treated as an absolute truth or evidence.</p>
+        </div>
         <div className="box">
         <motion.div className="up"  initial={{ scale:0}}
         viewport={{ once: true }}

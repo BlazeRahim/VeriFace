@@ -28,6 +28,12 @@ const Games = () => {
   console.log(edition)
   const screenWIdth = window.innerWidth;
   console.log(screenWIdth)
+  let size = 0
+  if(screenWIdth>700){
+    size=1000
+  }else{
+    size=screenWIdth-100
+  }
   const edarr = ["Celebrity Edition" , "Politician Edition" , "Random YT Video"]
  useEffect(()=>{
     if(flag===true){
@@ -207,7 +213,7 @@ function prevCard() {
             whileInView={{ opacity: 1, x: 0 }} transition={{duration:0.7 , type:"Spring" , bounce:0.8}} */}
             {finish === false && data?.map((item,idx)=>(
             <motion.div className="box" key={idx} id={`id${idx}`} 
-             initial={{ opacity: 0, x: screenWIdth-100 }}
+             initial={{ opacity: 0, x: size }}
              viewport={{once:true}}
             whileInView={{ opacity: 1, x: 0 }} transition={{duration:0.7 , type:"Spring" , bounce:0.8}}
             >

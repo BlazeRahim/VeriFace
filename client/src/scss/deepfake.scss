@@ -229,8 +229,29 @@ table, th, td {
     100% { opacity: 1; }
 }
 
+.deepfake .right{
+    flex-direction: column;
+    gap: 1.5rem;
+    justify-content: flex-start;
+}
 
-
+.deepfake .right .disc{
+    height: 25%;
+    width: 60%;
+    margin-left: -250px;
+    border: 1px solid #bec0da;
+    background-color: #efeef3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.6;
+    box-shadow:  0.5em 1em -0.125em rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.02)
+}
+.deepfake .right .disc p{
+    font-size: 0.86rem;
+    width: 90%;
+    text-align: center;
+}
 
 .deepfake .right .box{
     margin-left: -250px;
