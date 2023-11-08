@@ -83,6 +83,7 @@
     align-items: center;
     gap: 1rem;
     transition: transform 1s;
+    z-index: 0;
 }
 
 .games .play .card #boxu0{
@@ -139,7 +140,9 @@
 
 
 
-
+.confetti{
+    z-index: 1000;
+}
 
 .games .cover{
    width: 100vw;
@@ -148,7 +151,6 @@
    display: flex;
    justify-content: center;
    align-items: center;
-   z-index: 2000;
 }
 .games .cover .block{
     background-color: white;
@@ -162,6 +164,7 @@
     align-items: center;
     flex-direction: column;
     overflow: hidden;
+    z-index: 0;
 }
 
 .games .cover .block .up{
@@ -521,20 +524,20 @@ transition: 0.3s ease;
     .games .play .card{
         max-width: 88%;
         width: 88%;
-        height: 80%;
+        height: 75%;
     }
     .games .play .card .boxu{
         flex-direction: column;
-        gap: 0.5rem;
+        gap: 0rem;
     }
     .games .play .card .boxu img{
-        height: 50%;
-        width: 80%;
-        margin-top: 20px;
+        height: 40%;
+        width: 75%;
+        margin-top: 30px;
     }
     .games .play .card .boxu .theory{
         height: 50%;
-        width: 95%;
+        width: 90%;
     }
     .games .play .arrow{
         margin-top: -50px;
@@ -558,7 +561,7 @@ transition: 0.3s ease;
     .games .cover .block .image{
         width: 250px;
         height: 45%;
-        right: -18%;
+        right: -20%;
     }
     .games .cover .block .up{
         width: 100%;
@@ -576,12 +579,12 @@ transition: 0.3s ease;
     }
     .games .cover .block .rules{
         width: 85%;
-        height: 70%;
+        height: 75%;
     }
     .games .cover .block .rules ul{
         width: 80%;
         gap: 0.3rem;
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
     .games .cover .block .box{
         width: 90%;
@@ -620,10 +623,108 @@ transition: 0.3s ease;
     .games .cover .block .box .left .appear .ans h1{
         width: 100%;
     }
+
+    .games .cover .block .finish{
+        width: 85%;
+        height: 84%;
+    }
+    .games .cover .block .finish .score{
+        margin-left: 0px;
+        width: 100%;
+        height: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 0rem;
+        flex-direction: column;
+    }
+    .games .cover .block .finish .score h1{
+        margin: 0.3rem;
+        font-size: 1.6rem;
+        font-weight: 450;
+    }
+    .games .cover .block .finish .score h3{
+        margin-left: 0.3rem;
+        margin-top: 0.3rem;
+    }
+    
+    .games .cover .block .finish .more{
+        margin-left: 0px;
+        width: 100%;
+        height: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .games .cover .block .finish .more h1{
+        margin: 0;
+        font-size: 1.5rem;
+        font-weight: 450;
+    }
+    .games .cover .block .finish .more .boxes{
+        width: 100%;
+        height: 80%;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .games .cover .block .finish .more .boxes .box{
+    margin-top: 0%;
+    margin-right: 0%; 
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    border: 3px dashed #bec0da;
+    margin-bottom: 1rem;
+    background-color: #efeef3;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0.6;
+    transition: 0.3s ease;
+    }
+
+    .games .cover .block  .box .right .niche{
+        width:90%;
+        height: 60%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 1.3rem;
+    }
+    .games .cover .block  .box .right .niche h2{
+        margin: 0;
+        margin-left: 50%;
+        font-size: 1rem;
+        font-weight: 450;
+    }
+
+    .games .cover .block  .box .right .niche button{
+        border: none;
+        color: white;
+        width: 40%;
+        height: 42px;
+        font-size: 1.06rem;
+        border-radius: 6px;
+        font-weight: 540;
+        // margin-top: 100px;
+        transition: 0.4s ease;
+        }
+
+
 }
 
 
-    @media screen and (max-width:380px){
+    @media screen and (max-width:360px){
         .games{
             height: 85vh;
             gap: 0;
@@ -641,7 +742,7 @@ transition: 0.3s ease;
         .games .play .card{
             max-width: 88%;
             width: 88%;
-            height: 80%;
+            height: 75%;
         }
         .games .play .card .boxu{
             flex-direction: column;
@@ -649,13 +750,16 @@ transition: 0.3s ease;
         }
         .games .play .card .boxu img{
             height: 40%;
-            width: 80%;
+            width: 75%;
             margin-top: 20px;
         }
         .games .play .card .boxu .theory{
             height: 50%;
-            width: 95%;
-            margin-top: -0.6rem;
+            width: 90%;
+            margin-top: -0.5rem;
+        }
+        .games .play .card .boxu .theory p{
+            font-size: 0.83rem;
         }
         .games .play .arrow{
             margin-top: -50px;
@@ -776,4 +880,77 @@ transition: 0.3s ease;
             // margin-top: 100px;
             transition: 0.4s ease;
             }
+
+
+
+
+
+            .games .cover .block .finish{
+                width: 85%;
+                height: 84%;
+            }
+            .games .cover .block .finish .score{
+                margin-left: 0px;
+                width: 100%;
+                height: 20%;
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                gap: 0rem;
+                flex-direction: column;
+            }
+            .games .cover .block .finish .score h1{
+                margin: 0.3rem;
+                font-size: 1.6rem;
+                font-weight: 450;
+            }
+            .games .cover .block .finish .score h3{
+                margin-left: 0.3rem;
+                margin-top: 0.3rem;
+            }
+            
+            .games .cover .block .finish .more{
+                margin-left: 0px;
+                width: 100%;
+                height: 80%;
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .games .cover .block .finish .more h1{
+                margin: 0;
+                font-size: 1.5rem;
+                font-weight: 450;
+            }
+            .games .cover .block .finish .more .boxes{
+                width: 100%;
+                height: 80%;
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr 1fr 1fr;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .games .cover .block .finish .more .boxes .box{
+            margin-top: 0%;
+            margin-right: 0%; 
+            width: 100%;
+            height: 100%;
+            z-index: 1000;
+            border: 3px dashed #bec0da;
+            margin-bottom: 1rem;
+            background-color: #efeef3;
+            display: flex;
+            justify-content:center;
+            align-items: center;
+            flex-direction: column;
+            opacity: 0.6;
+            transition: 0.3s ease;
+            }
+        
     }

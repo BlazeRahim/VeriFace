@@ -116,6 +116,13 @@ const inputRef = useRef(null);
            element2.style.display="none";
            element3.style.animation="none";
            element3.style.animation="autoScale 0.6s ease"
+           if(window.innerWidth>700){
+            element3.style.height="280px"
+           }else if(window.innerWidth<700 && window.innerWidth>400){
+            element3.style.height="250px"
+           }else if(window.innerWidth<400){
+            element3.style.height="220px"
+           }
            element3.style.borderRadius="35px";
            element3.style.border=`5px solid ${color_code[msg.code]}`
            setreaction(msg.code);
@@ -206,7 +213,7 @@ const inputRef = useRef(null);
       )}
       {reaction!==-1 && (
         <div className="mt">
-        <img src={arr_emoji[reaction]}  alt="fv" className='react'/>
+        <img src={arr_emoji[0]}  alt="fv" className='react'/>
         </div>
       )}
       <div className="image">

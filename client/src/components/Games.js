@@ -26,6 +26,8 @@ const Games = () => {
   const [edition,setedition]=useState(-1)
   const [final , setfinal] = useState(false)
   console.log(edition)
+  const screenWIdth = window.innerWidth;
+  console.log(screenWIdth)
   const edarr = ["Celebrity Edition" , "Politician Edition" , "Random YT Video"]
  useEffect(()=>{
     if(flag===true){
@@ -35,7 +37,7 @@ const Games = () => {
       const temp =game.current;
       const ar = document.querySelectorAll(".boxu")
       for(var i=0;i<ar.length;i++){
-      ar[i].style.backgroundColor="#white"
+      ar[i].style.backgroundColor="#605e5e"
       }
       temp.style.backgroundColor="#605e5e";
       scroll("games")
@@ -47,7 +49,7 @@ useEffect(()=>{
    if(correct===true){
      setTimeout(()=>{
         setcorrect(false)
-     },2000)
+     },3400)
    }
     // eslint-disable-next-line
 },[correct])
@@ -151,7 +153,7 @@ function prevCard() {
           <div className="cover">
             {correct && (
               <>
-            <Confetti/>
+            <Confetti className='confetti'/>
             </>
             )}
           <motion.div className="block" ref={box} initial={{ scale:0}}
@@ -169,11 +171,13 @@ function prevCard() {
                     document.body.style.backgroundColor = "white";
                     document.body.style.overflowY="scroll";
                     const temp =game.current;
-                    temp.style.backgroundColor="#f5f5f7";
                     const ar = document.querySelectorAll(".boxu")
+                    console.log(ar)
                     for(var i=0;i<ar.length;i++){
-                    ar[i].style.backgroundColor="#white"
+                      console.log("Heuyy")
+                    ar[i].style.backgroundColor="white"
                     }
+                    temp.style.backgroundColor="#f5f5f7";
                     scroll("games")
                     setflag(false)
                     setrule(false)
@@ -202,7 +206,11 @@ function prevCard() {
                           {/* initial={{ opacity: 0, x: 0 }}
             whileInView={{ opacity: 1, x: 0 }} transition={{duration:0.7 , type:"Spring" , bounce:0.8}} */}
             {finish === false && data?.map((item,idx)=>(
-            <motion.div className="box" key={idx} id={`id${idx}`}>
+            <motion.div className="box" key={idx} id={`id${idx}`} 
+             initial={{ opacity: 0, x: screenWIdth-100 }}
+             viewport={{once:true}}
+            whileInView={{ opacity: 1, x: 0 }} transition={{duration:0.7 , type:"Spring" , bounce:0.8}}
+            >
               <div className="left">
               {fast===true && item.result===0 && (
                   <div className="appear" initial={{ scale:0}}
@@ -270,7 +278,9 @@ function prevCard() {
                 </div>
                 )}
                 {checked===true &&(
-               <div className="niche" id={final===true ? "correct" : "wrong"} >
+               <div className="niche"  initial={{ scale:0}}
+               viewport={{ once: true }}
+               whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6 , type:"Spring" , bounce:0.9 }}  id={final===true ? "correct" : "wrong"} >
                 {final===true ? (
                    <h2>You Guessed it Correct</h2>
                 ) :(
