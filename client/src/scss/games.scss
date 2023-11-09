@@ -724,7 +724,12 @@ transition: 0.3s ease;
 }
 
 
-    @media screen and (max-width:360px){
+
+
+
+
+
+    @media screen and (max-width:380px){
         .games{
             height: 85vh;
             gap: 0;
@@ -742,7 +747,7 @@ transition: 0.3s ease;
         .games .play .card{
             max-width: 88%;
             width: 88%;
-            height: 75%;
+            height: 70%;
         }
         .games .play .card .boxu{
             flex-direction: column;
@@ -769,7 +774,7 @@ transition: 0.3s ease;
             cursor: pointer;
         }
         .games .play .card .boxu .theory button{
-            margin-top: 0.3rem;
+            margin-top: 0rem;
         }
         .games .cover{
             width: 100vw;

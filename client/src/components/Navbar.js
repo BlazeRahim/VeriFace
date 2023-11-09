@@ -27,9 +27,9 @@ const Navbar = () => {
   },[window.innerWidth])
 
   const close =()=>{
-    // const ele = document.querySelector('.leftyyy')
-    // ele.style.display='none';
-    // setflag(false)
+    const ele = document.querySelector('.leftyyy')
+    ele.style.display='none';
+    setflag(false)
 }
   return (
     <div className="navbar">

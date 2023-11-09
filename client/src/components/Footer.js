@@ -1,10 +1,13 @@
 import '../scss/footer.scss'
 import { FaFacebook, FaGithub, FaTwitter } from "react-icons/fa";
+import {motion} from 'framer-motion';
 const footer = () => {
   return (
     <div className="footer">
         <div className="up">
-          <div className="left">
+          <motion.div className="left"  initial={{ opacity: 0, x: -400 }}
+        viewport={{ once: true }}
+        whileInView={{ opacity: 1, x: 0 }} transition={{duration:0.5 , type:"Spring" , bounce:0.4}}>
             <h4>
               Contact
             </h4>
@@ -34,8 +37,10 @@ const footer = () => {
                 </a>
               </button>
             </div>
-          </div>
-          <div className="right">
+          </motion.div>
+          <motion.div className="right" initial={{ opacity: 0, x: 500 }}
+        viewport={{ once: true }}
+        whileInView={{ opacity: 1, x: 0 }} transition={{duration:0.5 , type:"Spring" , bounce:0.4}}  >
               <div className="one">
                 <h1>Useful Links</h1>
                 <div className="item">
@@ -61,17 +66,20 @@ const footer = () => {
                     </a>
                     </div>
               </div>
-            </div> 
+            </motion.div> 
         </div>
-        <div className="line">
-
-        </div>
-        <div className="down">
+        <motion.div className="line" initial={{ opacity: 0, scale:0 }}
+        viewport={{ once: true }}
+        whileInView={{ opacity: 1, scale:1 }} transition={{duration:1.3 , type:"Spring" , bounce:0.4}} >
+        </motion.div>
+        <motion.div className="down" initial={{ opacity: 0, scale:0 }}
+        viewport={{ once: true }}
+        whileInView={{ opacity: 1, scale:1 }} transition={{duration:1.3 , type:"Spring" , bounce:0.4}}>
             <div className="text">
               Copyright © {new Date().getFullYear()} VeriFace | Built using
               Reactjs and Tensorflow
             </div>
-        </div>
+        </motion.div>
       </div>
   )
 }

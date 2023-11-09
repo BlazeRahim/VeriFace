@@ -204,6 +204,7 @@ function prevCard() {
                   </ul>
                   <button onClick={(e)=>{
                     e.preventDefault()
+
                     setrule(false) 
                   }}>Vamoos !</button>
               </div>
