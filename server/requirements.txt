@@ -1,7 +1,8 @@
-Flask==2.2.2
+Flask==3.0.3
 Flask-Cors==4.0.0
 Gunicorn
 tensorflow==2.11.0
 opencv-python==4.8.0.76
 numpy== 1.21.6
 Pillow==9.2.0
+Werkzeug==3.0.0
